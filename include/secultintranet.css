@@ -1,0 +1,942 @@
+/* GENERAL STYLING */
+:root {
+    --main-bg: rgb(245, 245, 245);
+    --azul-prefeitura: rgb(10,99,175);
+    --azul-highlight: rgb(11, 108, 193);
+    --azul-transparente: rgba(10, 98, 175, 0.1);
+    --bg-alt: rgb(230, 230, 230);
+    --texto-fundo-azul: rgb(245, 245, 245);
+    --cinza: rgb(112, 105, 105);
+}
+
+html, body {
+    height: 100%;
+}
+
+a {
+    color: var(--azul-prefeitura);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--azul-highlight);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-bg);
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    width: 100%;
+    max-width: 75rem;
+    min-width: 50rem;
+    align-self: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    color: var(--azul-prefeitura);
+    font-size: 2rem;
+    text-align: center;
+}
+
+button {
+    color: var(--texto-fundo-azul);
+    background-color: var(--azul-prefeitura);
+    padding: 0.5rem;
+    box-shadow: none;
+    display: block;
+    border-radius: 4px;
+    border: none;
+}
+
+button:hover {
+    background-color: var(--azul-highlight);
+}
+
+li {
+    list-style: none;
+}
+
+li > a {
+    text-decoration: none;
+}
+
+.hidden {
+    display: hidden;
+}
+
+hr {
+    margin: 2rem 10rem;
+    border-top: 1px dotted var(--azul-prefeitura);
+}
+
+.alerta {
+    display: none;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(235, 204, 209);
+    background-color: rgb(242, 222, 222);
+    color: rgb(176, 68, 68);
+    border-radius: 10px;
+    text-align: center;
+    padding: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.alerta > p {
+    display: block;
+}
+
+/* HEADER STYLING */
+header {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+#banner {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+#banner img {
+    height: auto;
+    max-width: 1024px;
+    min-width: 300px;
+    display: block;
+}
+
+.main-menu {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: var(--azul-prefeitura);
+}
+
+.main-menu-content {
+    background-color: var(--azul-prefeitura);
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: 0.15s ease-in-out;
+}
+
+/*Desenho da seta apontando para baixo, nos menus que possuem submenus*/
+.has-dropdown > a::after {
+    content: '';
+    border: 4px solid transparent;
+    border-top: 4px solid var(--texto-fundo-azul);
+    margin-left: 5px;
+    margin-bottom: 3px;
+    display: inline-block;
+    vertical-align: center;
+}
+
+.has-flyout > a::after {
+    content: '';
+    border: 4px solid transparent;
+    border-top: 4px solid var(--texto-fundo-azul);
+    margin-left: 5px;
+    margin-bottom: 3px;
+    display: inline-block;
+    vertical-align: center;
+}
+
+.main-menu-content > a {
+    color: var(--texto-fundo-azul);
+}
+
+.dropdown-box {
+    padding: 0;
+    transform: translateX(-1rem);
+    top: 100%;
+    width: 12rem;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    z-index: 2;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+
+.flyout-box-right {
+    padding: 0;
+    left: 100%;
+    transform: translateY(-3rem);
+    width: 12rem;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    z-index: 2;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+
+.flyout-box-left {
+    padding: 0;
+    left: -12rem;
+    transform: translateY(-3rem);
+    width: 12rem;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    z-index: 2;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+}
+
+.dropdown-content {
+    background-color: var(--azul-prefeitura);
+}
+
+.flyout-content {
+    background-color: var(--azul-prefeitura);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content > a {
+    color: var(--texto-fundo-azul);
+    padding: 0.8rem 1rem;
+    display: block;
+    text-align: left;
+}
+
+.flyout-content > a {
+    color: var(--texto-fundo-azul);
+    padding: 0.8rem 1rem;
+    display: block;
+    text-align: left;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: var(--azul-highlight);
+}
+
+/* Show the dropdown menu on hover */
+.has-dropdown:hover .dropdown-box {
+    display: block;
+}
+
+/* Show the flyout menu on hover */
+.has-flyout:hover > .flyout-box-right {
+    display: block;
+}
+
+.has-flyout:hover > .flyout-box-left {
+    display: block;
+}
+
+/* Change the background color of the menus */
+.main-menu-content:hover {
+    background-color: var(--azul-highlight);
+}
+
+.dropdown-content:hover {
+    background-color: var(--azul-highlight);
+}
+
+.flyout-content:hover {
+    background-color: var(--azul-highlight);
+}
+
+/* FOOTER STYLING */
+footer {
+    display: flex;
+    align-content: space-between;
+    flex-shrink: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    background-color: var(--azul-prefeitura);
+}
+
+#logos {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#logos img {
+    display: block;
+    height: 44px;
+}
+
+#extra-info {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#phone-number {
+    color: var(--texto-fundo-azul);
+}
+
+/*INDEX STYLING*/
+
+#index-main {
+    text-align: center;
+}
+
+/* criacao da primeira linha de conteudos, contendo as secoes avisos e acesso rapido */
+#avisos-acesso-rapido {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0 1rem;
+}
+
+
+/* distribuindo espaço da primeira linha de conteudos entre aniversariantes e datas especiais*/
+#avisos {
+    /* width: 75%; */
+    width: 100%;
+}
+
+#container-avisos {
+    padding: 1rem;
+    padding-top: 0;
+}
+
+#container-avisos > p {
+    text-align: center;
+}
+
+/* fazendo com que a secao acesso rapido ocupe o conteiner todo caso nao haja secao avisos */
+#acesso-rapido {
+    flex-grow: 1;
+}
+
+/* estilizando o container que contem os botoes do acesso rapido */
+#acesso-rapido-btns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* mudando cursor para "maozinha" quando sobre os botoes do acesso rapido */
+.btn-acesso-rapido {
+    cursor: pointer;
+}
+
+/* dessublinhando texto dentro do botao */
+#acesso-rapido-btns a {
+    text-decoration: none;
+}
+
+/* criando segunda linha de conteudos, contendo as seções aniversariantes e datas especiais */
+#aniversariantes-datas-especiais {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem;
+    margin-bottom: 0;
+}
+
+/* distribuindo espaço da segunda linha de conteudos entre aniversariantes e datas especiais*/
+#aniversariantes {
+    width: 50%;
+}
+
+#datas-especiais {
+    width: 50%;
+}
+
+/* decorando caixas de cada seção*/
+#index-main section {
+    /* border: var(--azul-prefeitura) solid 2px; */
+    border: rgb(200, 200, 200) solid 2px;
+    box-shadow: 5px 5px 10px 2px rgb(200, 200, 200);
+}
+
+/* criando o container flex para as tabelas */
+.container-tabela {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* mostrando colunas das tabelas lado-a-lado */
+.linha-tabela {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+/* organizando a distribuição do espaço entre nome, setor e data na tabela aniversariantes*/
+.aniversariante-nome {
+    width: 45%;
+    /*text-transform: uppercase;*/
+}
+
+.aniversariante-setor {
+    width: 40%;
+}
+
+.aniversariante-data {
+    width: 15%;
+}
+
+/* distribuindo o espaço da caixa entre data e descricao */
+.data-especial-data {
+    width: 15%;
+}
+
+.data-especial-descricao {
+    flex-grow: 1;
+}
+
+/* mudando cor apenas das entradas ímpares da tabela */
+.linha-tabela:nth-child(even){
+    background-color: var(--main-bg);
+}
+
+.linha-tabela:nth-child(odd){
+    background-color: rgb(220, 220, 220);
+}
+
+
+/* ASSINATURA STYLING */
+#container-formulario-previa {
+    display: flex;
+    flex-direction: row;
+    margin: 0 1rem;
+}
+
+#container-formulario {
+    flex-grow: 1;
+}
+
+.container-previa {
+    width: 600px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.subtitle {
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--cinza)
+}
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputGroup label{
+    padding: 0 0.6rem;
+    z-index: 1;
+    width: max-content;
+    margin: 0 0 -0.6rem 0.6rem;
+    font-weight: 700;
+    font-size: 1rem;
+    background: var(--main-bg);
+}
+
+input {
+    background: var(--main-bg);
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    padding: 1rem 1.2rem;
+    outline: none;
+    border-radius: 0.3rem;
+    border: 2px solid rgb(206, 206, 206);
+    transition: 0.3s;
+    background-color: var(--main-bg);
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill {
+    background-color: var(--main-bg);
+    -webkit-box-shadow: 0 0 0px 1000px var(--main-bg) inset;
+    box-shadow: 0 0 0px 1000px var(--main-bg) inset;
+}
+
+input:focus{
+    border: 2px solid var(--azul-prefeitura);
+}
+
+.btnForm{
+    border-radius: 0.5em;
+    color: var(--main-bg);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1.2rem;
+}
+
+.btnDownload {
+    align-self: center; 
+    width: 100%;
+}
+
+#tutorial > text {
+    display: block;
+    margin: 3rem;
+    padding: 2rem;
+    text-align: center;
+    border: 2px solid rgb(206, 206, 206);
+}
+
+#tutorial > label {
+    display: block;
+    position: absolute;
+    margin-top: 1.9rem;
+    margin-left: 3.6rem;
+    padding: 0.6rem;
+    background-color: var(--main-bg);
+    font-weight: bold;
+}
+
+.escondido {
+    display: none;
+}
+
+/* valores daqui para baixo em px porque se trata da construcao da imagem assinatura. Nao queremos que seja responsivo */
+#assinaturaIMG {
+    width: 580px;
+    height: 166px;
+}
+
+/* alinhamento e estilização das entradas na imagem da assinatura*/
+.infoAssinatura {
+    z-index: 1;
+    margin-top: 22px;
+    margin-left: 200px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+}
+
+.nomeFuncionario {
+    color: var(--azul-prefeitura);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.cargoFuncionario {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.telefoneOrgao {
+    font-size: 14px;
+    color: var(--azul-prefeitura);
+}
+
+.nomeOrgao {
+    margin-top: 18px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.enderecoOrgao {
+    color: var(--azul-prefeitura);
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* RAMAIS STYLING */
+
+#ramais {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+.container-local-tabela {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 3rem;
+    align-items: stretch;
+    border: var(--azul-prefeitura) 2px solid;
+}
+
+.local {
+    display: flex;
+    width: 10%;
+    background-color: var(--azul-prefeitura);
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--texto-fundo-azul)
+}
+
+.ramal-numero {
+    width: 15%;
+}
+
+.ramal-nome {
+    width: 30%;
+}
+
+.ramal-pessoas {
+    width: 55%;
+}
+
+.searchbar-container {
+    align-self: flex-end;
+}
+
+.searchbar, [type="search"] {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+    outline: none;
+    border: rgb(200, 200, 200) 2px solid;
+}
+
+.searchbar:focus {
+    border: var(--azul-prefeitura) 2px solid;
+}
+
+/* LOGOMARCAS STYLING */
+
+#logomarcas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--azul-transparente);
+}
+
+#logomarcas-container img {
+    display: block;
+}
+
+/* EQUIPE STYLING */
+#equipe-main {
+    width: auto;
+    padding: 2rem;
+}
+
+#equipe {
+    display: flex;
+    flex-direction: column;
+}
+
+.funcao-nome {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.equipe-funcao {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+.equipe-nome {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+/* MODELOS E TUTORIAIS STYLING*/
+
+.lista-simples {
+    list-style: square;
+}
+
+.topico {
+    list-style: disc outside none;
+    display: list-item;
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* LOGIN STYLING */
+
+#login-section {
+    width: 30rem;
+    align-self: center;
+    text-align: center;
+}
+
+/* SUPORTE STYLING */
+
+.grade-suporte {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.lista-suporte {
+    margin-bottom: 4rem;
+    width: 45%;
+    padding: 1rem;
+}
+
+.topico-suporte {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.logo-suporte {
+    display: block;
+    width: 150px;
+}
+
+.servico-suporte {
+    vertical-align: middle;
+    margin-left: 1.5rem;
+}
+
+.suporte-tipo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* EDITAR STYLING */
+
+.tabela-editavel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#tabela tr:nth-child(odd) {
+    background-color: rgb(220, 220, 220);
+}
+
+.dataTables_wrapper {
+    display: grid;
+    /* grid-template-areas: 
+    "length filter"
+    "tab tab"
+    "info paginate"; */
+    grid-template-areas: 
+    "filter filter"
+    "tab tab"
+    "info info";
+    /* border: 1px solid rgb(220, 220, 220); */
+    padding: 1rem;
+}
+
+.dataTables_length {
+    grid-area: length;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.dataTables_filter {
+    grid-area: filter;
+    text-align: right;
+}
+
+.dataTable {
+    margin: 1rem;
+    grid-area: tab;
+    border: 1px solid rgb(220, 220, 220);
+    text-align: center;
+}
+
+.dataTables_info {
+    grid-area: info;
+    /* text-align: left; */
+    text-align: right;
+}
+
+.dataTables_paginate {
+    grid-area: paginate;
+    text-align: right;
+}
+
+.dataTable > thead {
+    width: unset;
+}
+
+.tabledit-toolbar {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0.5rem;
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.btn-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 1rem;
+    height: 1rem;
+}
+
+td {
+    padding: 0.3rem 0.6rem;
+}
+
+thead > tr > th {
+    min-width: 1.5rem;
+    padding: 1rem 0.3rem;
+    border: 1px solid rgb(220, 220, 220);
+    text-align: center;
+}
+
+tr > td {
+    border: 1px solid rgb(220, 220, 220); 
+}
+
+.paginate_button {
+    margin-right: 0.2rem;
+    color: black;
+    border: 1px solid rgb(200, 200, 200);
+    padding: 0.5rem;
+    box-shadow: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.paginate_button:hover {
+    background-color: var(--azul-highlight);
+    color: var(--texto-fundo-azul);
+}
+
+.current {
+    background-color: var(--azul-prefeitura);
+    color: var(--texto-fundo-azul);
+}
+
+.disabled {
+    display: none;
+}
+
+.sorting {
+    min-width: 3.5rem;
+}
+
+.sorting::after {
+    font-family: "Font Awesome 6 Free";
+    content: "\f0dc";
+    color: var(--azul-prefeitura);
+    float: right;
+}
+
+.sorting_asc::after {
+    font-family: "Font Awesome 6 Free";
+    content: "\f0de";
+    color: var(--azul-prefeitura);
+    float: right;
+}
+
+.sorting_desc::after {
+    font-family: "Font Awesome 6 Free";
+    content: "\f0dd";
+    color: var(--azul-prefeitura);
+    float: right;
+}
+
+.sorting, .sorting_asc, .sorting_desc {
+    cursor: pointer;
+}
+
+.tabledit-toolbar-column::after {
+    display: inline;
+    content: "Ação";
+}
+
+.tabledit-input {
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    padding: 5px 3px;
+    margin: 0;
+}
+
+#empty td {
+    display: none;
+}
+
+.tabledit-confirm-button {
+    background-color: rgb(240, 65, 36);
+    border: none;
+}
+
+.tabledit-confirm-button:hover {
+    background-color: rgb(211, 42, 14);
+}
+
+.tabledit-save-button {
+    background-color: rgb(67, 172, 106);
+    border: none;
+}
+
+.tabledit-save-button:hover {
+    background-color: rgb(53, 135, 83);
+}
+
+select {
+    padding: 1rem 1.2rem;
+    border: 2px solid rgb(206, 206, 206);
+    background-color: var(--main-bg);
+    border-radius: 0.3rem;
+    transition: 0.3s;
+    width: 100%;
+}
+
+select:focus-visible {
+    outline: none;
+}
+
+select:focus {
+    padding: 1rem 1.2rem;
+    border: 2px solid var(--azul-prefeitura);
+    border-radius: 0.3rem;
+}

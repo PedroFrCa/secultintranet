@@ -1,0 +1,96 @@
+:root {
+    --main-bg: rgb(245, 245, 245);
+    --azul-prefeitura: rgb(10,99,175);
+    --azul-highlight: rgb(11, 108, 193);
+    --azul-transparente: rgba(10, 98, 175, 0.1);
+    --bg-alt: rgb(230, 230, 230);
+    --texto-fundo-azul: rgb(245, 245, 245);
+    --cinza: rgb(112, 105, 105);
+}
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 860px;
+    text-align: center;
+}
+
+.container-tabela {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.linha-tabela {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.1rem 0.5rem;
+    -webkit-print-color-adjust: exact;
+}
+
+#ramais {
+    text-align: center;
+    padding: 0 1rem;
+}
+
+#ramais-compacto {
+    padding: 1rem;
+}
+
+.container-local-tabela {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: stretch;
+    border: rgb(150, 150, 150) 2px solid;
+    border-bottom: 0;
+}
+
+ .container-local-tabela:last-child {
+    border-bottom: rgb(150, 150, 150) 3px solid;
+}
+
+.local {
+    display: flex;
+    width: 10%;
+    align-items: center;
+    justify-content: center;
+    border-right: rgb(150, 150, 150) 2px solid;
+}
+
+.ramal-numero {
+    width: 15%;
+}
+
+.ramal-nome {
+    width: 30%;
+}
+
+.ramal-pessoas {
+    width: 55%;
+}
+
+#tutorial {
+    padding-bottom: 1rem;
+}
+@page {
+    size: A4 portrait;
+    margin: none;
+}
+
+@media print {
+    #tutorial {
+        display: none;
+    }
+}
