@@ -1,8 +1,8 @@
 <?php
-    //Inicializando sessão
+    //Verificando se a sessão está iniciada
     session_start();
     //Verificando se a sessão tabela está iniciada
-    if(((string)$_SESSION['tabela']) != 'ramais'){
+    if(((string)$_SESSION['tabela']) != 'users'){
         header('location: /login.php');
     }
 
@@ -52,7 +52,7 @@
         <div id="header"></div>
         <!-- Page main content start -->
         <main>
-            <h1 class="section-title">Editar Ramais</h1>
+            <h1 class="section-title">Editar Usuários</h1>
             <div class="tabela-editavel">
                 <table id="tabela" class="">
                     <!-- Passando o nome da tabela -->  
@@ -60,12 +60,19 @@
                     <input class="tabledit-input" name="tabela" value="<?php echo $tabela ?>" type="hidden">
                         <tr>
                             <th>id</th>
-                            <th>#</th>
-                            <th>Local</th>
-                            <th>Número</th>
-                            <th>Nome</th>
-                            <th>Pesoas</th>
-                            <th>Negrito</th>
+                            <th>Usuário</th>
+                            <th>Senha</th>
+                            <th>aniversariantes</th>
+                            <th>avisos</th>
+                            <th>datasespeciais</th>
+                            <th>equipe</th>
+                            <th>logomarcas</th>
+                            <th>modelos</th>
+                            <th>navbar_sites</th>
+                            <th>ramais</th>
+                            <th>suporte</th>
+                            <th>tutoriais</th>
+                            <th>users</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -73,6 +80,10 @@
                 <div class="btn-group">
                     <button class="add">Nova entrada</button>
                     <button class="cancel">Cancelar</button>
+                </div>
+                <div id="tutorial" style="width: 70%;align-self: center;">
+                    <label>Dica </label>
+                    <text>Pode não ser seguro armazenar a senha diretamente no banco de dados. Digite a senha que deseja armazenar em <a src="https://phppasswordhash.com/">https://phppasswordhash.com/</a> e cole o código gerado no campo senha. O servidor reconhecerá a senha inicial na autenticação.</text>
                 </div>
             </div>
             <div class="nova-linha"></div>

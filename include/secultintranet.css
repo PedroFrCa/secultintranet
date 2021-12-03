@@ -354,6 +354,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
     gap: 1rem;
     margin: 1rem;
     margin-bottom: 0;
@@ -373,6 +374,7 @@ footer {
     /* border: var(--azul-prefeitura) solid 2px; */
     border: rgb(200, 200, 200) solid 2px;
     box-shadow: 5px 5px 10px 2px rgb(200, 200, 200);
+    height: auto;
 }
 
 /* criando o container flex para as tabelas */
@@ -565,6 +567,7 @@ input:focus{
     margin-top: 18px;
     font-size: 16px;
     font-weight: 700;
+    color: var(--azul-prefeitura);
 }
 
 .enderecoOrgao {
@@ -739,8 +742,8 @@ input:focus{
 .tabela-editavel {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    margin: auto;
+    max-width: 100%;
 }
 
 
@@ -759,7 +762,8 @@ input:focus{
     "tab tab"
     "info info";
     /* border: 1px solid rgb(220, 220, 220); */
-    padding: 1rem;
+    width: 100%;
+    overflow: auto;
 }
 
 .dataTables_length {
@@ -777,7 +781,6 @@ input:focus{
 .dataTable {
     margin: 1rem;
     grid-area: tab;
-    border: 1px solid rgb(220, 220, 220);
     text-align: center;
 }
 
@@ -807,6 +810,7 @@ input:focus{
     display: flex;
     flex-direction: row;
     gap: 5px;
+    align-self: center;
 }
 
 .btn-icon {
@@ -859,10 +863,26 @@ tr > td {
 }
 
 .sorting {
-    min-width: 3.5rem;
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 2rem;
+}
+
+.sorting_asc {
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 2rem;
+}
+
+.sorting_desc {
+    position: relative;
+    padding-left: 1rem;
+    padding-right: 2rem;
 }
 
 .sorting::after {
+    position: absolute;
+    right: 0.5rem;
     font-family: "Font Awesome 6 Free";
     content: "\f0dc";
     color: var(--azul-prefeitura);
@@ -870,6 +890,8 @@ tr > td {
 }
 
 .sorting_asc::after {
+    position: absolute;
+    margin-left: 0.5rem;
     font-family: "Font Awesome 6 Free";
     content: "\f0de";
     color: var(--azul-prefeitura);
@@ -877,6 +899,8 @@ tr > td {
 }
 
 .sorting_desc::after {
+    position: absolute;
+    margin-left: 0.5rem;
     font-family: "Font Awesome 6 Free";
     content: "\f0dd";
     color: var(--azul-prefeitura);

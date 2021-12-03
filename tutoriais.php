@@ -56,9 +56,6 @@
                     $conn->close();
                 ?>
 <!-- FIM geracao lista tutoriais -->
-                    <!-- exemplo
-                     <li class="topico"><a href="#"></a></li>
-                    -->
             </ul>
         </main>
         <!-- Page main content end -->

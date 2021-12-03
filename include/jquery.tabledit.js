@@ -590,9 +590,10 @@ if (typeof jQuery === 'undefined') {
                         Mode.edit($td.closest('td').next());
                     }
                     break;
-                // case 13: // Enter.
-                //     Edit.submit($td);
-                //     break;
+                 case 13: // Enter.
+                        $(document).find('.tabledit-save-button:visible').click();
+                        $(document).find('.tabledit-confirm-button:visible').click();
+                    break;
                 case 27: // Escape.
                     Edit.reset($td);
                     Delete.reset($td);

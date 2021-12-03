@@ -100,6 +100,7 @@ function db_isallowed($user, $pass, $tabela) {
                                 <option value="navbar_sites">Menu Sites</option>
                                 <option value="ramais">Ramais</option>
                                 <option value="suporte">Suporte</option>
+                                <option value="users">Usuários</option>
                             </select>
                         </div>
                         <div class="inputGroup">
