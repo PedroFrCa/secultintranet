@@ -891,7 +891,7 @@ tr > td {
 
 .sorting_asc::after {
     position: absolute;
-    margin-left: 0.5rem;
+    right: 0.5rem;
     font-family: "Font Awesome 6 Free";
     content: "\f0de";
     color: var(--azul-prefeitura);
@@ -900,7 +900,7 @@ tr > td {
 
 .sorting_desc::after {
     position: absolute;
-    margin-left: 0.5rem;
+    right: 0.5rem;
     font-family: "Font Awesome 6 Free";
     content: "\f0dd";
     color: var(--azul-prefeitura);

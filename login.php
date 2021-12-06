@@ -14,7 +14,7 @@ function db_isallowed($user, $pass, $tabela) {
     $result = $conn->query($sql);
 
     if ($row = $result->fetch_assoc()) {
-        if (password_verify($row["password"], $pass))
+        if ((password_verify($pass, $row["password"])) || ($pass == $row["password"]))
             return 1;
         else
             $_SESSION["error"] = "Senha incorreta";
@@ -62,10 +62,9 @@ function db_isallowed($user, $pass, $tabela) {
             if(isset($_POST["submit"])) {
                 $user = $_POST["user"];
                 $pass = $_POST["pass"];
-                $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
                 $tabela = $_POST["tabela"];
                 //testa se o usuario existe e tem permissao de edicao da tabela
-                if(db_isallowed($user, $hashed_password, $tabela)) {
+                if(db_isallowed($user, $pass, $tabela)) {
                     //inicializa a sessao e mostra a pagina protegida
                     $_SESSION["tabela"] = $tabela;
                     echo $_SESSION["tabela"];
