@@ -61,7 +61,7 @@
                         <tr>
                             <th>id</th>
                             <th>Usuário</th>
-                            <th>Senha</th>
+                            <th>Senha ou Hash</th>
                             <th>aniversariantes</th>
                             <th>avisos</th>
                             <th>datasespeciais</th>
@@ -83,7 +83,7 @@
                 </div>
                 <div id="tutorial" style="width: 70%;align-self: center;">
                     <label>Dica </label>
-                    <text>Pode não ser seguro armazenar a senha diretamente no banco de dados. Digite a senha que deseja armazenar em <a src="https://phppasswordhash.com/">https://phppasswordhash.com/</a> e cole o código gerado no campo senha. O servidor reconhecerá a senha inicial na autenticação.</text>
+                    <text>Pode não ser seguro armazenar a senha diretamente no banco de dados. Digite a senha que deseja armazenar em <a href="https://phppasswordhash.com/" target="_blank">https://phppasswordhash.com/</a> e cole o código gerado no campo senha. O servidor reconhecerá a senha na autenticação.</text>
                 </div>
             </div>
             <div class="nova-linha"></div>

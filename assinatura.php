@@ -88,8 +88,10 @@
                 />
                 <datalist id="enderecos">
                   <option>Rua da Argentina, 341 - Comércio - CEP 40015-130</option>
-                  <option>Avenida Beira Mar - Stella Maris - CEP 41600-677</option>
                   <option>Rua Belgica com Praça Visconde de Cairu - CEP 40015-520</option>
+                  <option>Rua Chile, Praça Municipal - Elevador Lacerda - Térreo</option>
+                  <option>Praça Ramos de Queiroz, sn - Pelourinho - CEP: 40026-055</option>
+                  <option>Avenida Beira Mar - Stella Maris - CEP 41600-677</option>
                 </datalist>
               </div>
     
@@ -154,7 +156,7 @@
           e.preventDefault();
   
           const container = document.getElementById("assinaturaIMG");
-          html2canvas(container).then(function(canvas) {
+          html2canvas(container, {backgroundColor: "rgba(0,0,0,0)", removeContainer: true}).then(function(canvas) {
                   var link = document.createElement("a");
                   document.body.appendChild(link);
                   link.download = "assinatura.png";
