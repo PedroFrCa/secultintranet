@@ -30,7 +30,7 @@ function db_isallowed($user, $pass, $tabela) {
 
 <html>
     <head>
-        <title>Intranet SECULT</title>
+        <title>Intranet SECULT | Login</title>
         <link rel="sortcut icon" href="arquivos/favicon.ico" type="image/ico">
         <link href="include/secultintranet.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">

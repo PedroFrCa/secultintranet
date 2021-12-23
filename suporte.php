@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Intranet SECULT</title>
+        <title>Intranet SECULT | Suporte</title>
         <link rel="sortcut icon" href="arquivos/favicon.ico" type="image/ico">
         <link href="include/secultintranet.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">

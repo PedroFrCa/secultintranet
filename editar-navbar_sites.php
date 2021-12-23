@@ -27,7 +27,7 @@
 
 <html>
 <head>
-        <title>Intranet SECULT</title>
+        <title>Intranet SECULT | Editar Tabela</title>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <link rel="sortcut icon" href="arquivos/favicon.ico" type="image/ico">
         <link href="include/secultintranet.css" rel="stylesheet">
